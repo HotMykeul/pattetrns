@@ -22,7 +22,7 @@ Contact = (function (self) {
 
         this.createContactWithProfessionalMobile = function(gender, firstname, lastname, phone_number) {
             contact = new Contact.Contact(gender, firstname, lastname);
-            contact.add_phone(new Contact.Phone(phone_number, Contact.PhoneCategory.PRO, Contact.PhoneType.MOBILE));
+            contact.add_phone(new Contact.Phone(phone_number, Contact.PhoneCategory.PRO,Contact.PhoneType.MOBILE));
             return contact;
         };
 

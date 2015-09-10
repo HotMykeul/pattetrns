@@ -8,7 +8,7 @@ Contact = (function (self) {
 
     self.Gender = {MR: 1, Melle: 2, Mme: 3};
 
-    self.Contact = function (gender, firstname, lastname) {
+    self.Contact = function(gender, firstname, lastname) {
         var _id;
         var _gender;
         var _firstname;
@@ -19,11 +19,17 @@ Contact = (function (self) {
         this.gender = function () {
             return _gender;
         };
+
         this.firstName = function () {
             return _firstname;
         };
+
         this.lastName = function () {
             return _lastname;
+        };
+
+        this.id = function() {
+            return _id;
         };
 
         this.set_gender = function (gender) {
@@ -59,7 +65,7 @@ Contact = (function (self) {
             _firstname = firstname;
             _lastname = lastname;
             _id = 'xxxx-xxxx-xxxx-xxxx-xxxx'.replace(/x/g, function(c){
-              var r = Math.random()*16| 0, v = c == 'x' ? r : (r&0x3|0x8);
+              var r = Math.random()*16| 0, v = c == 'x' ? r  : (r&0x3|0x8);
                 return v.toString(16);
             });
             _mails = [];
