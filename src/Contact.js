@@ -9,9 +9,12 @@ Contact = (function (self) {
     self.Gender = {MR: 1, Melle: 2, Mme: 3};
 
     self.Contact = function (gender, firstname, lastname) {
+        var _id;
         var _gender;
         var _firstname;
         var _lastname;
+        var _mails;
+        var _phones;
 
         this.gender = function () {
             return _gender;
@@ -35,13 +38,32 @@ Contact = (function (self) {
             _lastname = lastname;
         };
 
-        var process = function () {
+        this.add_mail = function(mail) {
+            _mails.push(mail);
+        };
+
+        this.mails = function() {
+            return _mails;
+        };
+
+        this.add_phone = function(number) {
+            _phones.push(number);
+        };
+
+        this.phones = function() {
+            return _phones;
         };
 
         var init = function (gender, firstname, lastname) {
             _gender = gender;
             _firstname = firstname;
             _lastname = lastname;
+            _id = 'xxxx-xxxx-xxxx-xxxx-xxxx'.replace(/x/g, function(c){
+              var r = Math.random()*16| 0, v = c == 'x' ? r : (r&0x3|0x8);
+                return v.toString(16);
+            });
+            _mails = [];
+            _phones = [];
         };
 
         init(gender, firstname, lastname);
