@@ -9,6 +9,7 @@ Contact = (function (self) {
     var temp = {
         t: [],
         s: 0,
+
         clear: function () {
             temp.t = [];
             temp.s = 0;
@@ -32,6 +33,30 @@ Contact = (function (self) {
                 }
             }
             return contact;
+        },
+
+        getFromName: function (firstname, lastname) {
+            var contact = [];
+            var i;
+            for (i = 0; i < temp.t.length; i++){
+                if(temp.t[i].lastName() == lastname && temp.t[i].firstName() == firstname){
+                     contact.push(temp.t[i]);
+                }
+            }
+            return contact;
+        },
+
+        remove: function (id) {
+            var contact = [];
+            var i;
+
+            for (i = 0; i < temp.t.length; i++){
+                if(temp.t[i].id() !== id){
+                    contact.push(temp.t[i]);
+                }
+            }
+            temp.t = contact;
+            temp.s = temp.t.length;
         },
 
     };

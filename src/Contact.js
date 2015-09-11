@@ -52,7 +52,7 @@ Contact = (function (self) {
             return _mails;
         };
 
-        this.add_phone = function(number) {
+        this.addPhone = function(number) {
             _phones.push(number);
         };
 
