@@ -6,65 +6,77 @@ var Contact = Contact || {};
 Contact = (function (self) {
     'use strict';
 
-    var temp = {
-        t: [],
-        s: 0,
+    var Contacts = function() {
+        var contact_list = [];
+        var size = 0;
 
-        clear: function () {
-            temp.t = [];
-            temp.s = 0;
-        },
+        this.clear =  function () {
+            contact_list = [];
+            size = 0;
+        };
 
-        size: function () {
-            return temp.s;
-        },
+        this.size = function () {
+            return contact_list.length;
+        };
 
-        add: function (contact) {
-            temp.t.push(contact);
-            temp.s++;
-        },
+        this.add = function (contact) {
+            contact_list.push(contact);
+            size++;
+        };
 
-        get: function (id) {
+        this.get = function (id) {
             var contact;
             var i;
-            for (i = 0; i < temp.t.length; i++){
-                if(temp.t[i].id() == id){
-                    contact = temp.t[i];
+            for (i = 0; i < contact_list.length; i++){
+                if(contact_list[i].id() == id){
+                    contact = contact_list[i];
                 }
             }
             return contact;
-        },
+        };
 
-        getFromName: function (firstname, lastname) {
-            var contact = [];
+        this.getFromName = function (firstname, lastname) {
+            var contacts = [];
             var i;
-            for (i = 0; i < temp.t.length; i++){
-                if(temp.t[i].lastName() == lastname && temp.t[i].firstName() == firstname){
-                     contact.push(temp.t[i]);
+            for (i = 0; i < contact_list.length; i++){
+                if(contact_list[i].lastName() == lastname && contact_list[i].firstName() == firstname){
+                     contacts.push(contact_list[i]);
                 }
             }
-            return contact;
-        },
+            return contacts;
+        };
 
-        remove: function (id) {
+        this.remove = function (id) {
             var contact = [];
             var i;
 
-            for (i = 0; i < temp.t.length; i++){
-                if(temp.t[i].id() !== id){
-                    contact.push(temp.t[i]);
+            for (i = 0; i < contact_list.length; i++){
+                if(contact_list[i].id() !== id){
+                    contact.push(contact_list[i]);
                 }
             }
-            temp.t = contact;
-            temp.s = temp.t.length;
-        },
+            contact_list = contact;
+            size = contact_list.length;
+        };
 
+        this.search = function (strategy) {
+            return strategy.get(this);
+        };
+
+        this.get_contact_list = function (){
+            return contact_list;
+        };
     };
+
+    var contacts = null;
 
     self.Contacts = {
 
         instance : function () {
-            return temp;
+            if(contacts == null){
+                contacts = new Contacts();
+            }
+            return contacts;
         }
 
 
