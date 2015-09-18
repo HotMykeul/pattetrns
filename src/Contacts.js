@@ -43,6 +43,7 @@ Contact = (function (self) {
                      contacts.push(contact_list[i]);
                 }
             }
+            if(contacts.length == 0) return null;
             return contacts;
         };
 

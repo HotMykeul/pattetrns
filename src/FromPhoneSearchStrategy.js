@@ -8,6 +8,8 @@ Contact = (function (self) {
 
     self.FromPhoneSearchStrategy = function(phone_number) {
 
+        var _phone_number = phone_number;
+
         this.get = function(contacts) {
             var contacts_list = contacts.get_contact_list();
             var i;
@@ -22,6 +24,10 @@ Contact = (function (self) {
                 }
             }
             return null;
+        };
+
+        this.get_attribute = function(){
+            return _phone_number;
         };
     };
 

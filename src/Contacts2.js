@@ -6,7 +6,7 @@ var Contact = Contact || {};
 Contact = (function (self) {
     'use strict';
 
-    var Contacts = function() {
+    self.Contacts2 = function() {
         var contact_list = [];
         var size = 0;
 
@@ -66,20 +66,10 @@ Contact = (function (self) {
         this.get_contact_list = function (){
             return contact_list;
         };
-    };
 
-    var contacts = null;
-
-    self.Contacts = {
-
-        instance : function () {
-            if(contacts == null){
-                contacts = new Contacts();
-            }
-            return contacts;
-        }
-
-
+        this.change = function(strategy) {
+            strategy.change();
+        };
     };
 
     return self;

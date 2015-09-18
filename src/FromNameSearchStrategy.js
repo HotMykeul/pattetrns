@@ -6,19 +6,14 @@ var Contact = Contact || {};
 Contact = (function (self) {
     'use strict';
 
-    self.FromMailSearchStrategy = function(mail) {
+    self.FromNameSearchStrategy = function(firstname, lastname) {
 
         this.get = function(contacts) {
             var contacts_list = contacts.get_contact_list();
             var i;
-            for(i = 0; i < contacts_list.length; i++){
-                var mails_list_of_contact = contacts_list[i].mails();
-                var j;
-
-                for(j = 0; j < mails_list_of_contact.length; j++) {
-                    if (mails_list_of_contact[j].address() == mail) {
-                        return contacts_list[i];
-                    }
+            for(i = 0; i < contacts_list.length; i++) {
+                if (contacts_list[i].firstName() == firstname && contacts_list[i].lastName() == lastname) {
+                    return contacts_list[i];
                 }
             }
             return null;
