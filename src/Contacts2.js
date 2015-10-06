@@ -68,7 +68,7 @@ Contact = (function (self) {
         };
 
         this.change = function(strategy) {
-            strategy.change();
+            strategy.change(this);
         };
     };
 

@@ -14,7 +14,8 @@ Contact = (function (self) {
         var _firstname;
         var _lastname;
         var _mails;
-        var _phones;
+        var _phones = [];
+        var _tag;
 
         this.gender = function () {
             return _gender;
@@ -42,6 +43,18 @@ Contact = (function (self) {
 
         this.set_lastname = function (lastname) {
             _lastname = lastname;
+        };
+
+        this.get_tag = function (){
+            return _tag;
+        };
+
+        this.set_phone = function(i, phone){
+            _phones[i] = phone;
+        };
+
+        this.add_tag = function(tag){
+            _tag = tag;
         };
 
         this.add_mail = function(mail) {
