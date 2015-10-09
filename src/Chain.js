@@ -1,6 +1,7 @@
 /**
  * Created by mdurieux on 06/10/15.
  */
+
 var Contact = Contact || {};
 
 Contact = (function (self) {
@@ -14,4 +15,6 @@ Contact = (function (self) {
 
     };
 
-});
+    return self;
+
+}(Contact || {}));

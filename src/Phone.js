@@ -7,7 +7,7 @@ Contact = (function (self) {
     'use strict';
 
     self.PhoneCategory = {PERSO: 1, PRO: 2};
-    self.PhoneType = {MOBILE: 1, HOME: 2};
+    self.PhoneType = {MOBILE: 1, PHONE: 2};
 
     self.Phone = function(phone_number, phone_category, phone_type) {
         var _phone_number;

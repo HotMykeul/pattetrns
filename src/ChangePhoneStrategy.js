@@ -9,7 +9,7 @@ Contact = (function (self) {
     self.ChangePhoneStrategy = function(firstname, lastname, phone_remove, phone_replace) {
 
         this.change = function(contacts) {
-            var contact = contacts.getFromName(firstname, lastname);
+            var contact = contacts.getFromName(firstname, lastname)[0];
             var i;
             var phones_numbers = contact.phones();
             for(i = 0; i < phones_numbers.length; i++){
