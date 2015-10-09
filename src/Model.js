@@ -14,6 +14,10 @@ Contact = (function (self) {
             return singleton.get_contact_list();
         };
 
+        this.remove_contact = function(id_to_remove){
+            singleton.remove_contact(id_to_remove);
+        };
+
         var init = function () {
             singleton = Contact.Contacts.instance();
         };

@@ -17,8 +17,11 @@ Contact = (function (self) {
                 $("#button_" + contacts[i].id()).on("click", function(e) {
                     var e = e || window.event;
                     var target = e.target || e.srcElement;
-                    
-
+                    var id_to_remove = target.id.split("_")[1];
+                    model.remove_contact(id_to_remove);
+                    alert("Contact supprimé.");
+                    view.refresh();
+                    init(model,view);
                 });
             }
 

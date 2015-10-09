@@ -64,6 +64,17 @@ Contact = (function (self) {
             return strategy.get(this);
         };
 
+        this.remove_contact = function (id_to_remove){
+            var new_contact_list = [];
+            var i;
+            for(i=0; i<contact_list.length; i++){
+                if(contact_list[i].get_id() != id_to_remove) {
+                    new_contact_list.push(contact_list[i]);
+                }
+            }
+            contact_list = new_contact_list;
+        };
+
         this.get_contact_list = function (){
             return contact_list;
         };

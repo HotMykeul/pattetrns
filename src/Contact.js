@@ -73,6 +73,10 @@ Contact = (function (self) {
             return _phones;
         };
 
+        this.get_id = function() {
+            return _id;
+        };
+
         var init = function (gender, firstname, lastname) {
             _gender = gender;
             _firstname = firstname;

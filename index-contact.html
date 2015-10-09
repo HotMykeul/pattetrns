@@ -104,11 +104,16 @@
             assert.equal($('td#cellFirstName').length, 3);
             assert.equal(Contact.Contacts.instance().size(), 3);
 
-            it = Contact.Contacts.instance().iterator();
-            it.each(function (contact) {
-                assert.equal($('tr#x' + contact.id() + ' td#cellFirstName').html(), contact.firstName());
-                assert.equal($('tr#x' + contact.id() + ' td#cellLastName').html(), contact.lastName());
-            });
+            var contacts = Contact.Contacts.instance().get_contact_list();
+
+            for(i = 0; i < contacts.length; i++) {
+                contact = contacts[i];
+
+                if (contact) {
+                    assert.equal($('tr#x' + contact.id() + ' td#cellFirstName').html(), contact.firstName());
+                    assert.equal($('tr#x' + contact.id() + ' td#cellLastName').html(), contact.lastName());
+                }
+            }
         });
 
     </script>
